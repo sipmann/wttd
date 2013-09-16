@@ -1,13 +1,15 @@
-from django.test import TestCase, Client
+# coding: utf-8
+from django.test import TestCase
 
 
-class SimpleTest(TestCase):
+class HomepageTest(TestCase):
     def setUp(self):
-        self.c = Client()
-        self.resp = self.c.get('/')
+        self.resp = self.client.get('/')
 
-    def test_basic_addition(self):
-        """
-        Testa se o request retorna 200
-        """
-        self.assertEqual(self.resp.status_code, 200)
+    def test_get(self):
+        'Testa se o request retorna 200'
+        self.assertEqual(200, self.resp.status_code)
+
+    def test_template(self):
+        'Index deve usar o template index.html'
+        self.assertTemplateUsed(self.resp, 'core/index.html')
