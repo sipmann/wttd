@@ -63,3 +63,11 @@ class SubscribeInvalidPostTest(TestCase):
     def test_post(self):
         'Dados inválidos não devem redirecionar'
         self.assertEqual(200, self.resp.status_code)
+
+    def test_form_errors(self):
+        'Form deve ter erros'
+        self.assertTrue(self.resp.context['form'].errors)
+
+    def test_dont_save(self):
+        'Não deve salvar os dados'
+        self.assertFalse(Subscription.objects.exists())
