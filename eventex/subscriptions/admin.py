@@ -28,7 +28,7 @@ class SubscriptionAdmin(admin.ModelAdmin):
             u'%d inscrições foram marcadas como pagas.',
             count
         )
-        self.message_user(request, msg & count)
+        self.message_user(request, msg % count)
     
     mark_as_paid.short_description = _('Marcar como pago')
 
