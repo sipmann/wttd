@@ -10,3 +10,4 @@ class SubscriptionForm(forms.ModelForm):
     #iphone = forms.CharField(label=_('Telefone'), max_length=20)
     class Meta:
         model = Subscription
+        fields = ['name', 'cpf', 'email', 'phone']

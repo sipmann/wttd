@@ -4,7 +4,7 @@ from unipath import Path
 import dj_database_url
 
 PROJECT_DIR = Path(__file__).parent
-
+SOUTH_TESTS_MIGRATE = False
 DEBUG = os.environ.get('DEBIG') == 'True'#True
 TEMPLATE_DEBUG = DEBUG
 
@@ -128,6 +128,7 @@ INSTALLED_APPS = (
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'django.contrib.admin',
+    'south',
     'eventex.core',
     'eventex.subscriptions',
     # Uncomment the next line to enable the admin:
