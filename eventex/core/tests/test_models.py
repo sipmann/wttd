@@ -47,3 +47,8 @@ class ContactModel(TestCase):
         'Tipo contato deve estar limitado a E, P ou F'
         contact = Contact(speaker=self.speaker, kind='A', value='B')
         self.assertRaises(ValidationError, contact.full_clean)
+
+    def test_unicode(self):
+        'Testa o unicode '
+        contact = Contact(speaker=self.speaker, kind='E', value='mauricio@sipmann.com')
+        self.assertEqual('mauricio@sipmann.com', unicode(contact))
